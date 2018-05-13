@@ -1,3 +1,5 @@
+import math
+
 _MNIST_IMG_WIDTH = 28
 _MNIST_IMG_HEIGHT = 28
 _MNIST_NUMBER_OF_MNIST_OBJECTS = 60000
@@ -17,7 +19,7 @@ class MnistObject:
                 else:
                     print('X', end='')
             print(end="\n")
-        print("Label: " + str(self.label), end="\n\n")
+        print("Label: " + str(self.label), end="\n\n", flush=True)
 
 
 def _byte_swap(bytes_to_swap):
@@ -46,8 +48,14 @@ def load_training():
         mnist_objects_list.append(MnistObject(image, label))
         mnist_objects_loaded += 1
         print("\rLoading images: {} out of {}".format(mnist_objects_loaded, _MNIST_NUMBER_OF_MNIST_OBJECTS), end='')
-    print(end="\n")
+    print(end="\n", flush=True)
 
     return mnist_objects_list
 
+
+def get_distance(mnist_object_1: MnistObject, mnist_object_2: MnistObject):
+    distance = 0.0
+    for i in range(0, _MNIST_IMG_WIDTH * _MNIST_IMG_HEIGHT):
+        distance = distance + math.pow(mnist_object_1.image[i] - mnist_object_2.image[i], 2.0)
+    return math.sqrt(distance)
 
