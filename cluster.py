@@ -38,3 +38,22 @@ def get_distance(cluster_1: MnistCluster, cluster_2: MnistCluster):
                 max_distance = distance
     return max_distance
 
+
+def create_clusters(mnist_data):
+    """
+    Function which creates sorted and trained clusters.
+    :param mnist_data:
+    :return:
+    """
+    reference_clusters = {i: MnistCluster() for i in range(10)}
+
+    for i in mnist_data:
+            reference_clusters[i.label].add_object(i)
+
+    return reference_clusters
+
+
+def recognize_cluster(reference_clusters, test_cluster: MnistCluster):
+
+    results = [get_distance(reference, test_cluster) for reference in reference_clusters.values()]
+    return list(index for index, value in enumerate(results) if value == min(results))
