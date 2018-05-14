@@ -2,7 +2,10 @@ import mnist
 import cluster
 
 # load mnist database
-mnist_data = mnist.load_training()
+image_path = "./mnist_images/train-images.idx3-ubyte"
+label_path = "./mnist_images/train-labels.idx1-ubyte"
+number_of_objects = mnist._MNIST_NUMBER_OF_TRAINING_MNIST_OBJECTS
+mnist_data = mnist.load_images(image_path, label_path, number_of_objects)
 
 # show all mnist images - uncomment if you got too much time
 # for i in range(0, len(mnist_data)):
