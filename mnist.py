@@ -5,7 +5,11 @@ _MNIST_IMG_HEIGHT = 28
 _MNIST_NUMBER_OF_TRAINING_MNIST_OBJECTS = 60000
 _MNIST_NUMBER_OF_TESTING_MNIST_OBJECTS = 10000
 
+
 class MnistObject:
+    """
+    Class of Mnist image which consists of image and label.
+    """
     def __init__(self, image, label):
         self.image = image
         self.label = label
@@ -27,6 +31,13 @@ def _byte_swap(bytes_to_swap):
 
 
 def load_images(image_path, label_path, number_of_objects):
+    """
+    Loads mnist images.
+    :param image_path: Path where images are.
+    :param label_path: Path where corresponding labels are.
+    :param number_of_objects: Number of images to load.
+    :return: List of MnistObjects.
+    """
     mnist_image_database = open(image_path, "rb")
     mnist_image_database.read(16)   # read and discard first 16 bytes from image set
 
@@ -54,8 +65,10 @@ def load_images(image_path, label_path, number_of_objects):
 
 
 def get_distance(mnist_object_1: MnistObject, mnist_object_2: MnistObject):
+    """
+    Distance between MnistObjects.
+    """
     distance = 0.0
     for i in range(0, _MNIST_IMG_WIDTH * _MNIST_IMG_HEIGHT):
         distance = distance + math.pow(mnist_object_1.image[i] - mnist_object_2.image[i], 2.0)
     return math.sqrt(distance)
-

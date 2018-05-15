@@ -3,6 +3,9 @@ from mnist import MnistObject
 
 
 class MnistCluster:
+    """
+    Class which enables creating clusters using class MnistObject.
+    """
     def __init__(self):
         self.__mnist_objects_list = []
         self.number_of_objects = 0
@@ -21,6 +24,12 @@ class MnistCluster:
 
 
 def merge_clusters(cluster_1: MnistCluster, cluster_2: MnistCluster):
+    """
+    Merging clusters.
+    :param cluster_1: Cluster to merge.
+    :param cluster_2: Cluster to merge.
+    :return: Merged clusters.
+    """
     output_cluster = MnistCluster()
     for i in range(0, cluster_1.number_of_objects):
         output_cluster.add_object(cluster_1.get_object(i))
@@ -30,6 +39,12 @@ def merge_clusters(cluster_1: MnistCluster, cluster_2: MnistCluster):
 
 
 def get_distance(cluster_1: MnistCluster, cluster_2: MnistCluster):
+    """
+    Function which calculates distance between two clusters.
+    :param cluster_1: One of two clusters to calculate distance.
+    :param cluster_2: One of two clusters to calculate distance.
+    :return: Calculated distance.
+    """
     max_distance = 0.0
     for o in range(0, cluster_1.number_of_objects):
         for i in range(0, cluster_2.number_of_objects):
@@ -42,8 +57,8 @@ def get_distance(cluster_1: MnistCluster, cluster_2: MnistCluster):
 def create_clusters(mnist_data):
     """
     Function which creates sorted and trained clusters.
-    :param mnist_data:
-    :return:
+    :param mnist_data: database with training, labaled images
+    :return: dictionary of 10 sorted clusters
     """
     reference_clusters = {i: MnistCluster() for i in range(10)}
 
@@ -54,6 +69,12 @@ def create_clusters(mnist_data):
 
 
 def recognize_cluster(reference_clusters, test_cluster: MnistCluster):
-
+    """
+    Recognizing to which cluster of reference clusters test_clusters suits the best.
+    :param reference_clusters: Trained clusters.
+    :param test_cluster:
+    :return:
+    """
     results = [get_distance(reference, test_cluster) for reference in reference_clusters.values()]
+    print(results)
     return list(index for index, value in enumerate(results) if value == min(results))
