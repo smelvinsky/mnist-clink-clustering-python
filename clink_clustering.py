@@ -43,14 +43,14 @@ test_data = mnist.load_images(image_path, label_path, number_of_objects)
 reference = cluster.create_clusters(mnist_data)
 
 score = 0
-maximum = 100
+maximum = 1000
 for i in range(maximum):
     print(i)
     to_recognition = cluster.MnistCluster()
     to_recognition.add_object(test_data[i])
     recognition = cluster.recognize_cluster(reference, to_recognition)
     # to_recognition.display()
-    # print("recognized: ", recognition)
+    # print("recognized: ", recognition[0])
     if int(recognition[0]) == to_recognition.get_object(0).label:
         score += 1
     print("{} of {} tested".format(score/(i+1), i+1))

@@ -70,5 +70,6 @@ def get_distance(mnist_object_1: MnistObject, mnist_object_2: MnistObject):
     """
     distance = 0.0
     for i in range(0, _MNIST_IMG_WIDTH * _MNIST_IMG_HEIGHT):
-        distance = distance + math.pow(mnist_object_1.image[i] - mnist_object_2.image[i], 2.0)
-    return math.sqrt(distance)
+        if mnist_object_1.image[i] != mnist_object_2.image[i]:
+            distance = distance + 1
+    return distance
