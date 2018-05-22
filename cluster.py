@@ -8,16 +8,19 @@ class MnistCluster:
     """
     def __init__(self):
         self.__mnist_objects_list = []
-        self.number_of_objects = 0
+        self.__number_of_objects = 0
 
     def add_object(self, mnist_object: MnistObject):
         self.__mnist_objects_list.append(mnist_object)
-        self.number_of_objects += 1
+        self.__number_of_objects += 1
 
     def display(self):
-        for mnist_object in range(0, self.number_of_objects):
+        for mnist_object in range(0, self.__number_of_objects):
             mnist_object_tmp: MnistObject = self.__mnist_objects_list[mnist_object]
             mnist_object_tmp.display()
+
+    def get_num_of_objects(self):
+        return self.__number_of_objects
 
     def get_object(self, index):
         return self.__mnist_objects_list[index]
