@@ -34,9 +34,9 @@ def merge_clusters(cluster_1: MnistCluster, cluster_2: MnistCluster):
     :return: Merged clusters.
     """
     output_cluster = MnistCluster()
-    for i in range(0, cluster_1.number_of_objects):
+    for i in range(0, cluster_1.get_num_of_objects()):
         output_cluster.add_object(cluster_1.get_object(i))
-    for i in range(0, cluster_2.number_of_objects):
+    for i in range(0, cluster_2.get_num_of_objects()):
         output_cluster.add_object(cluster_2.get_object(i))
     return output_cluster
 
@@ -49,8 +49,8 @@ def get_distance(cluster_1: MnistCluster, cluster_2: MnistCluster):
     :return: Calculated distance.
     """
     max_distance = 0.0
-    for o in range(0, cluster_1.number_of_objects):
-        for i in range(0, cluster_2.number_of_objects):
+    for o in range(0, cluster_1.get_num_of_objects()):
+        for i in range(0, cluster_2.get_num_of_objects()):
             distance = mnist.get_distance(cluster_1.get_object(o), cluster_2.get_object(i))
             if distance > max_distance:
                 max_distance = distance
