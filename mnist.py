@@ -25,6 +25,12 @@ class MnistObject:
             print(end="\n")
         print("Label: " + str(self.label), end="\n\n", flush=True)
 
+    def get_label(self):
+        return self.label
+
+    def get_image(self):
+        return self.image
+
 
 def _byte_swap(bytes_to_swap):
     return int.from_bytes(bytes_to_swap, byteorder="big")
