@@ -48,14 +48,19 @@ Usage examples:
 
 
 # recognition of test images
-score = 0
-maximum = number_of_objects_test
-for i in range(maximum):
-    to_recognition = cluster.MnistCluster()
-    to_recognition.add_object(test_data[i])
-    recognition = cluster.recognize_cluster(reference_clusters, to_recognition)
-    if int(recognition[0]) == to_recognition.get_object(0).label:
-        score += 1
-    print("\rCurrent score of recognition is {} % for {} tested images.".format(100*score/(i+1), i+1), end='')
+print("Behavioral model running... (hit CTRL + C to skip)")
+try:
+    score = 0
+    maximum = number_of_objects_test
+    for i in range(maximum):
+        to_recognition = cluster.MnistCluster()
+        to_recognition.add_object(test_data[i])
+        recognition = cluster.recognize_cluster(reference_clusters, to_recognition)
+        if int(recognition[0]) == to_recognition.get_object(0).label:
+            score += 1
+        print("\rCurrent score of recognition is {} % for {} tested images.".format(100*score/(i+1), i+1), end='')
+except KeyboardInterrupt:
+    print("\nBehavioral model execution skipped.")
 
 c_code.generate(reference_clusters)
+print("Done.")
