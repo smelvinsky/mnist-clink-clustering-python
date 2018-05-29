@@ -49,8 +49,8 @@ def get_distance(cluster_1: MnistCluster, cluster_2: MnistCluster):
     :return: Calculated distance.
     """
     distances = []
-    for o in range(0, cluster_1.number_of_objects):
-        for i in range(0, cluster_2.number_of_objects):
+    for o in range(0, cluster_1.get_num_of_objects()):
+        for i in range(0, cluster_2.get_num_of_objects()):
             distance = mnist.get_distance(cluster_1.get_object(o), cluster_2.get_object(i))
             distances.append(distance)
     return min(distances)

@@ -56,6 +56,6 @@ for i in range(maximum):
     recognition = cluster.recognize_cluster(reference_clusters, to_recognition)
     if int(recognition[0]) == to_recognition.get_object(0).label:
         score += 1
-    print("\rCurrent score of recognition is {} % for {} tested images.".format(score/(i+1), i+1), end='')
+    print("\rCurrent score of recognition is {} % for {} tested images.".format(100*score/(i+1), i+1), end='')
 
 c_code.generate(reference_clusters)
