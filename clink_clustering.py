@@ -49,21 +49,11 @@ Usage examples:
 
 # recognition of test images
 score = 0
-<<<<<<< HEAD
 maximum = number_of_objects_test
-=======
-maximum = 1000
->>>>>>> Magda
 for i in range(maximum):
     to_recognition = cluster.MnistCluster()
     to_recognition.add_object(test_data[i])
-<<<<<<< HEAD
     recognition = cluster.recognize_cluster(reference_clusters, to_recognition)
-=======
-    recognition = cluster.recognize_cluster(reference, to_recognition)
-    # to_recognition.display()
-    # print("recognized: ", recognition[0])
->>>>>>> Magda
     if int(recognition[0]) == to_recognition.get_object(0).label:
         score += 1
     print("\rCurrent score of recognition is {} % for {} tested images.".format(score/(i+1), i+1), end='')
