@@ -26,7 +26,7 @@ Open your ` terminal ` and ` cd ` into ` mnist-clink-clustering-python ` folder 
 $ python3.6 clink_clustering.py
 ```
 
-The execution of behavioral model correctness checking (**VERY time-consuming**) can be skipped by hitting ` CTRL+C ` (then sript will jump directly to C code generation part).
+The execution of behavioral model correctness checking (**VERY time-consuming**) can be skipped by hitting ` CTRL+C ` (then script will jump directly to C code generation part).
 
 After the script is done, two new files will appear in ` ./c_code ` folder: ` mnist_clusters.c ` and ` mnist_clusters.h `. Even though the size of source files reaches 131 MB, they will be compiled down to ~17 MB (e.g. using gcc). (**Most graphical text editors cannot handle files that large so it is recommended to open them with text-mode editors e.g. vim**).
 
