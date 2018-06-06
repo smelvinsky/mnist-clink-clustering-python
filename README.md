@@ -2,7 +2,7 @@
 
 The scope of this project is to develop a **hardware-accelerated application for recognition of handwritten digits**. Chosen target platform for firmware being created is **Zynq-7000 SoC** (by Xillinx).
 
-The application uses a **single-linkage clustering** algorithm to group given image to one of predefined clusters storing reference digit images. Correctness verification included in behavioral model indicates that following approach is **~95% efficient**.
+The application uses a **single-linkage clustering** algorithm to group given image to one of predefined clusters storing reference digit images. Correctness verification included in behavioral model indicates that following approach is **~96% efficient**.
 
 Reference clusters are made based on **MNIST** open-source database. (For more info about MNIST visit
 http://yann.lecun.com/exdb/mnist/).
