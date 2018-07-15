@@ -1,7 +1,0 @@
-Running: xsim.dir/distance_tb_behav/xsimk.exe -simmode gui -wdb distance_tb_behav.wdb -simrunnum 0 -socket 55447
-Design successfully loaded
-Design Loading Memory Usage: 9296 KB (Peak: 9296 KB)
-Design Loading CPU Usage: 124 ms
-Simulation completed
-Simulation Memory Usage: 10204 KB (Peak: 10204 KB)
-Simulation CPU Usage: 155 ms
